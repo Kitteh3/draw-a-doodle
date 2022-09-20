@@ -34,3 +34,9 @@ slider.oninput = function() {
   let value = Number(this.value);
   makeGrid(value, value);
 };
+
+//changing color:
+const sample = document.querySelector('.color-sample');
+const style = getComputedStyle(sample);
+const color = style.backgroundColor;
+console.log(color);
