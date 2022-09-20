@@ -2,17 +2,6 @@
 const gridContainer = document.querySelector('.grid-container');
 
 
-/*color picker from react-color
-import React from 'react'
-import { SketchPicker } from 'react-color'
-
-class Component extends React.Component {
-
-  render() {
-    return <SketchPicker />
-  }
-}; */
-
 //getting slider to DOM
 const slider = document.getElementById('myRange');
 const output = document.getElementById('demo');
@@ -36,6 +25,7 @@ slider.oninput = function() {
 };
 
 //changing color:
+//get background color of sample
 const sample = document.querySelector('.color-sample');
 const style = getComputedStyle(sample);
 const color = style.backgroundColor;
