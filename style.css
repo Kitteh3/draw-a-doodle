@@ -21,6 +21,7 @@ body {
     flex-wrap: wrap-reverse;
     justify-content: center;
     align-items: center;
+    margin: 0px 20px;
 }
 
 .sidebar {
@@ -30,6 +31,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    margin: 10px;
 }
 
 .text {
@@ -48,8 +50,6 @@ body {
 .clear {
     flex: 1 1 0%;
     padding: 20px;
-    border-radius: 25px;
-    margin: 10px 20px;
     min-width: 30px;
 
 }
@@ -57,6 +57,7 @@ body {
 .color {
     background-color: #babd8d;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -81,6 +82,22 @@ body {
     background-color: black;
 }
 
+.container {
+    display: grid;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    max-width: 300px;
+    min-width: 300px;
+    max-height: 75px;
+    min-height: 75px;
+    border: 3px solid white;
+    margin: 10px;
+}
+
+.color-square {
+    outline: none;
+
+}
 
 .grid-size {
     background-color: #eb6424;
