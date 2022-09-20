@@ -18,11 +18,15 @@ body {
 
 .main-content {
     display: flex;
+    flex-wrap: wrap-reverse;
     justify-content: center;
     align-items: center;
 }
 
 .sidebar {
+    flex: 1 1 0%;
+    min-width: 300px;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -41,9 +45,11 @@ body {
 .grid-size,
 .tools,
 .clear {
+    flex: 1 1 0%;
     padding: 20px;
     border-radius: 25px;
     margin: 10px 20px;
+    min-width: 30px;
 
 }
 
@@ -81,14 +87,65 @@ body {
     background-color: #f9b9a2;
 }
 
+.tool-selection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shading-tool,
+.eraser-tool,
+.rainbow-tool {
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 80px;
+}
+
+#shading,
+#eraser,
+#rainbow {
+    flex: 1 1 0%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 10px 5px;
+    margin-bottom: 0px;
+    min-width: 80px;
+}
+
+#shading img,
+#eraser img,
+#rainbow img {
+    flex: 1 1 0%;
+    min-width: 10px;
+    max-width: 70px;
+}
+
+.light-text {
+    font-family: brother-1816, sans-serif;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
 .clear {
     background-color: #7c6a0a;
 }
 
 .grid-container {
+    flex: 1 1 0%;
     display: flex;
-    width: 800px;
-    height: 800px;
+    min-width: 600px;
+    min-height: 600px;
+    max-width: 800px;
+    max-height: 800px;
     background-color: white;
     margin: 20px;
     margin-top: 0px;
