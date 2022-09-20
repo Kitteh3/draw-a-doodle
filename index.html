@@ -7,15 +7,39 @@
         <link rel="stylesheet" href="https://use.typekit.net/aoo2vsi.css">
     </head>
     <body>
-        <div class="logo"><img src="images/DaD_logo.png" alt=""></div>
+        <div class="logo"><img src="images/DaD_logo.png" alt="Draw a Doodle logo, bold interesting font with color gradient"></div>
         <div class="main-content">
             <div class="sidebar">
                 <div class="color">
-                    <div class="choose-a-color">choose a color</div>
-                    
+                    <div class="text">choose a color</div>
                 </div>
-                <div class="slidecontainer">
-                    <input type="range" min="16" max="100" value="50" class="slider" id="myRange">
+                <div class="grid-size">
+                    <div class="text">pixel size</div>
+                    <div class="slidecontainer">
+                        <input type="range" min="16" max="100" value="50" class="slider" id="myRange">
+                        <p class="text"><span id="demo"></span></p>
+                    </div>
+                </div>
+                <div class="tools">
+                    <div class="text">try a tool</div>
+                    <div class="tool-selection">
+                        <div class="shading-tool">
+                            <button id="shading"><img src="images/DaD_shading.png" alt="An icon that fades from green to transparent representing shading"></button>
+                            <p class="light-text">shading</p>
+                        </div>
+                        <div class="eraser-tool">
+                            <button id="eraser"><img src="images/DaD_eraser.png" alt="An orange icon with a swoosh erased from center"></button>
+                            <p class="light-text">eraser</p>
+                        </div>
+                        <div class="rainbow-tool">
+                            <button id="rainbow"><img src="images/DaD_rainbow.png" alt="A rainbow colored blob"></button>
+                            <p class="light-text">rainbow</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="clear">
+                    <div class="text">clear</div>
                 </div>
             </div>
             <div class="grid-container"></div>
