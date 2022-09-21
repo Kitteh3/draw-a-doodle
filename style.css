@@ -178,6 +178,7 @@ body {
 
 .clear {
     background-color: #7c6a0a;
+    cursor: pointer;
 }
 
 .grid-container {

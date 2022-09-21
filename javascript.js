@@ -65,4 +65,16 @@ const pixels = document.querySelectorAll('.grid-square');
     div.addEventListener('mouseover', (e) => {
       e.target.style.backgroundColor = userColor;
     });
+    div.addEventListener('touchmove', (e) => {
+      e.target.style.backgroundColor = userColor;
+    })
+  });
+
+  //clear drawing
+  const clearContainer = document.querySelector('.clear');
+  clearContainer.addEventListener('click', () => {
+    /* window.location.href = window.location.href; */
+    pixels.forEach((div) => {
+      div.style.backgroundColor = 'white';
+    });
   });
