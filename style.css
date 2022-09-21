@@ -1,6 +1,6 @@
 body {
     background-image: url('images/DaD_bg.png');
-    background-color: #f9e2d7;
+    background-color: black;
 }
 
 .logo {
@@ -55,7 +55,7 @@ body {
 }
 
 .color {
-    background-color: #babd8d;
+    background-color: #1c1c1c;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -98,7 +98,7 @@ body {
 }
 
 .grid-size {
-    background-color: #eb6424;
+    background-color: #303030;
 }
 
 .slidecontainer {
@@ -119,13 +119,13 @@ body {
     -webkit-appearance: none;
     width: 20px;
     height: 20px;
-    background: #f9b9a2;
+    background: #a0840e;
     cursor: pointer;
     border-radius: 50%;
 }
 
 .tools {
-    background-color: #f9b9a2;
+    background-color: #444443;
 }
 
 .tool-selection {
@@ -177,7 +177,7 @@ body {
 }
 
 .clear {
-    background-color: #7c6a0a;
+    background-color: #727272;
     cursor: pointer;
 }
 
