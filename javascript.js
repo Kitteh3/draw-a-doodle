@@ -59,7 +59,7 @@ colorSquares.forEach((div) => {
 });
 
 //live drawing
-const pixels = document.querySelectorAll('.grid-square');
+let pixels = document.querySelectorAll('.grid-square');
 
   pixels.forEach((div) => {
     div.addEventListener('mouseover', (e) => {
@@ -78,3 +78,19 @@ const pixels = document.querySelectorAll('.grid-square');
       div.style.backgroundColor = 'white';
     });
   });
+  //shading tool
+  const shadingTool = document.querySelector('#shading');
+  
+  /* shadingTool.addEventListener('click', (e) => {
+    e.target.style.border = 'thick solid #5e960e';
+    e.target.style.borderRadius = '100%';
+    pixels.forEach((div) => {
+      div.addEventListener('mouseover', (e) => {
+        e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
+      });
+    });
+    shadingTool.addEventListener('click', (e) => {
+      e.target.style.border = 'none';
+      e.target.style.borderRadius = '0%';
+    });
+  }); */

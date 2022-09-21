@@ -151,11 +151,13 @@ body {
     flex: 1 1 0%;
     background-color: transparent;
     border: none;
+    border-radius: 100%;
     cursor: pointer;
     margin: 10px 5px;
     margin-bottom: 0px;
     min-width: 80px;
 }
+
 
 #shading img,
 #eraser img,
@@ -176,6 +178,7 @@ body {
     margin-bottom: 10px;
 }
 
+
 .clear {
     background-color: #727272;
     cursor: pointer;
@@ -193,6 +196,7 @@ body {
     background-color: white;
     margin: 20px;
     margin-top: 0px;
+    cursor: crosshair;
 }
 
 .grid-square {
