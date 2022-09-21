@@ -195,5 +195,5 @@ body {
 }
 
 .grid-square {
-    outline: black solid 1px;
+    outline: none;
 }
