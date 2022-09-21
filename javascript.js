@@ -24,13 +24,6 @@ slider.oninput = function() {
   makeGrid(value, value);
 };
 
-//changing color:
-//get background color of sample
-const sample = document.querySelector('.color-sample');
-const style = getComputedStyle(sample);
-const color = style.backgroundColor;
-console.log(color);
-
 //color picker
 const colorContainer = document.querySelector('.container');
 //make array of colors
@@ -46,3 +39,24 @@ function makePicker(rows, cols) {
   };
 };
 makePicker(4, 12);
+
+//CHOOSE A COLOR
+//colorSquares is a nodelist of the 48 colors in the grid
+const colorSquares = document.querySelectorAll('.color-square');
+console.log(colorSquares);
+
+//get background color of sample
+let sample = document.querySelector('.color-sample');
+let style = getComputedStyle(sample);
+let color = style.backgroundColor;
+/*let colorArray = Array.from(colorSquares);
+let colorPick = colorArray[0].style.backgroundColor;*/
+//adding chosen color to color-sample
+colorSquares.forEach((div) => {
+  div.addEventListener('click', (e) => {
+    console.log(e.target.style.backgroundColor);
+    sample.style.backgroundColor = e.target.style.backgroundColor;
+  });
+});
+
+
