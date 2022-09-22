@@ -1,6 +1,9 @@
 //getting grid container to DOM
 const gridContainer = document.querySelector('.grid-container');
 
+//hiding canvas color picker
+const canvasPicker = document.querySelector('.canvas-picker');
+canvasPicker.style.display = 'none';
 
 //getting slider to DOM
 const slider = document.getElementById('myRange');
@@ -54,43 +57,56 @@ colorSquares.forEach((div) => {
   div.addEventListener('click', (e) => {
     sample.style.backgroundColor = e.target.style.backgroundColor;
     userColor = e.target.style.backgroundColor;
-    console.log(userColor);
   });
 });
 
 //live drawing
 let pixels = document.querySelectorAll('.grid-square');
 
-  pixels.forEach((div) => {
-    div.addEventListener('mouseover', (e) => {
-      e.target.style.backgroundColor = userColor;
-    });
-    div.addEventListener('touchmove', (e) => {
-      e.target.style.backgroundColor = userColor;
-    })
+pixels.forEach((div) => {
+  div.addEventListener('mouseover', (e) => {
+    e.target.style.backgroundColor = userColor;
   });
+  div.addEventListener('touchmove', (e) => {
+    e.target.style.backgroundColor = userColor;
+  })
+});
 
-  //clear drawing
-  const clearContainer = document.querySelector('.clear');
-  clearContainer.addEventListener('click', () => {
-    /* window.location.href = window.location.href; */
-    pixels.forEach((div) => {
-      div.style.backgroundColor = 'white';
+//clear drawing
+const clearContainer = document.querySelector('.clear');
+clearContainer.addEventListener('click', () => {
+  pixels.forEach((div) => {
+    div.style.backgroundColor = 'white';
+  });
+});
+//canvas-color tool
+const canvasTool = document.querySelector('#canvas-color img');
+
+//canvas color picker
+function makeCanvasPicker(rows, cols) {
+  canvasPicker.style.setProperty('--grid-rows', rows);
+  canvasPicker.style.setProperty('--grid-cols', cols);
+  for (let i = 0; i < (rows * cols); i++) {
+    let colorSquare = document.createElement('div');
+    canvasPicker.appendChild(colorSquare).className = 'color-square';
+    colorSquare.style.backgroundColor = colors[i];
+  };
+};
+//changing canvas color
+canvasTool.addEventListener('click', (e) => {
+  e.target.style.border = '3px solid #ffffff';
+  e.target.style.borderRadius = '100%';
+  makeCanvasPicker(4, 12);
+  canvasPicker.style.display = 'grid';
+  //setting canvas to selected color
+  let canvasColorSquares = document.querySelectorAll('.canvas-picker div');
+  canvasColorSquares.forEach((div) => {
+    div.addEventListener('click', (e) => {
+      gridContainer.style.backgroundColor = e.target.style.backgroundColor;
+      canvasPicker.style.display = 'none';
+      canvasTool.style.border = 'none';
+      canvasTool.style.borderRadius = '0%';
     });
   });
-  //shading tool
-  const shadingTool = document.querySelector('#shading');
-  
-  /* shadingTool.addEventListener('click', (e) => {
-    e.target.style.border = 'thick solid #5e960e';
-    e.target.style.borderRadius = '100%';
-    pixels.forEach((div) => {
-      div.addEventListener('mouseover', (e) => {
-        e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
-      });
-    });
-    shadingTool.addEventListener('click', (e) => {
-      e.target.style.border = 'none';
-      e.target.style.borderRadius = '0%';
-    });
-  }); */
+});
+

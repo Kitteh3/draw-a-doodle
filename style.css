@@ -80,7 +80,8 @@ body {
     outline: 3px solid white;
 }
 
-.container {
+.container,
+.canvas-picker {
     display: grid;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
@@ -90,6 +91,10 @@ body {
     min-height: 75px;
     border: 3px solid white;
     margin: 10px;
+}
+
+.canvas-picker {
+    margin-left: 25px;
 }
 
 .color-square {
@@ -134,7 +139,7 @@ body {
     align-items: center;
 }
 
-.shading-tool,
+.canvas-tool,
 .eraser-tool,
 .rainbow-tool {
     flex: 1 1 0%;
@@ -145,7 +150,7 @@ body {
     min-width: 80px;
 }
 
-#shading,
+#canvas-color,
 #eraser,
 #rainbow {
     flex: 1 1 0%;
@@ -159,7 +164,7 @@ body {
 }
 
 
-#shading img,
+#canvas-color img,
 #eraser img,
 #rainbow img {
     flex: 1 1 0%;
@@ -201,4 +206,5 @@ body {
 
 .grid-square {
     outline: none;
+    background-color: none  ;
 }
