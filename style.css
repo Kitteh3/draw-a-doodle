@@ -136,7 +136,7 @@ body {
 .tool-selection {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .canvas-tool,
@@ -206,5 +206,5 @@ body {
 
 .grid-square {
     outline: none;
-    background-color: none  ;
+    background-color: transparent;
 }

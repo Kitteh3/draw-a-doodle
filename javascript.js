@@ -62,21 +62,34 @@ colorSquares.forEach((div) => {
 
 //live drawing
 let pixels = document.querySelectorAll('.grid-square');
+//creating function for drawing to be called inside event listeners for live drawing, eraser, and rainbow tool
+function drawing() {
+  pixels.forEach((div) => {
+    div.addEventListener('mouseover', (e) => {
+      e.target.style.backgroundColor = userColor;
+    });
+    div.addEventListener('touchmove', (e) => {
+      e.target.style.backgroundColor = userColor;
+    });
+  });
+};
+//calling function for live drawing
+drawing();
 
-pixels.forEach((div) => {
+/* pixels.forEach((div) => {
   div.addEventListener('mouseover', (e) => {
     e.target.style.backgroundColor = userColor;
   });
   div.addEventListener('touchmove', (e) => {
     e.target.style.backgroundColor = userColor;
-  })
-});
+  });
+}); */
 
 //clear drawing
 const clearContainer = document.querySelector('.clear');
 clearContainer.addEventListener('click', () => {
   pixels.forEach((div) => {
-    div.style.backgroundColor = 'white';
+    div.style.backgroundColor = 'transparent';
   });
 });
 //canvas-color tool
@@ -94,8 +107,10 @@ function makeCanvasPicker(rows, cols) {
 };
 //changing canvas color
 canvasTool.addEventListener('click', (e) => {
+  //canvas tool style on click
   e.target.style.border = '3px solid #ffffff';
   e.target.style.borderRadius = '100%';
+  //show the canvas picker in tools section
   makeCanvasPicker(4, 12);
   canvasPicker.style.display = 'grid';
   //setting canvas to selected color
@@ -110,3 +125,20 @@ canvasTool.addEventListener('click', (e) => {
   });
 });
 
+//eraser tool
+const eraserTool = document.querySelector('#eraser img');
+//erasing pixels when passed over
+eraserTool.addEventListener('click', (e) => {
+  //eraser tool style on click
+  e.target.style.border = '3px solid #ffffff';
+  e.target.style.borderRadius = '100%';
+  //changing from live drawing to erasing (change color of pixels to transparent)
+  userColor = 'transparent';
+  drawing();
+  //disabling eraser tool
+  eraserTool.addEventListener('click', (e) => {
+    e.target.style.border = 'none';
+    e.target.style.borderRadius = '0%';
+    userColor = sample.style.backgroundColor;
+  });
+});
