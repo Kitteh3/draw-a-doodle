@@ -19,7 +19,7 @@ function makeGrid(rows, cols) {
     gridContainer.appendChild(gridSquare).className = 'grid-square';
   };
 }; 
-makeGrid(50, 50); //start with 50x50
+makeGrid(30, 30); //start with 30x30
 //update current slider value (each time you drag the slider handle)
 slider.oninput = function() {
   output.innerHTML = this.value;
@@ -152,3 +152,42 @@ rainbowTool.addEventListener('click', (e) => {
     drawing();
   };
 });
+
+/*
+//shading tool
+const shadingTool = document.querySelector('#shading img');
+const shadingContainer = document.querySelector('.shading-container');
+//make shading grid over canvas
+function shadingGrid(rows, cols) {
+  shadingContainer.style.setProperty('--grid-rows', rows);
+  shadingContainer.style.setProperty('--grid-cols', cols);
+  for (let i = 0; i < (rows * cols); i++) {
+    let overlaySquare = document.createElement('div');
+    shadingContainer.appendChild(overlaySquare).className = 'overlay-square';
+  };
+}; 
+//draw shading
+let shadingSquare = document.querySelectorAll('.overlay-square');
+function shading() {
+  shadingSquare.forEach((div) => {
+    div.addEventListener('mouseover', (e) => {
+      e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+      if (e.target.style.opacity < 1) {
+        e.target.opacity += 0.2;
+      };
+    });
+  });
+};
+//shading pixels when passed over
+shadingTool.addEventListener('click', (e) => {
+  //shading style on click
+  shadingTool.classList.toggle('active');
+  if (shadingTool.getAttribute('class') === 'active') {
+    shadingContainer.style.display = 'grid';
+    shadingGrid(slider.value, slider.value);
+    shading();
+  } else if (shadingTool.getAttribute('class') !== 'active') {
+    userColor = sampleColor.getPropertyValue('background-color');
+  };
+});
+*/
