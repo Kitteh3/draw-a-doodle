@@ -47,11 +47,10 @@ makePicker(4, 12);
 //colorSquares is a nodelist of the 48 colors in the grid
 const colorSquares = document.querySelectorAll('.color-square');
 
-//get background color of sample
-let sample = document.querySelector('.color-sample');
-let style = getComputedStyle(sample);
-let color = style.backgroundColor;
-let userColor = 'black';
+//get sample div to DOM
+const sample = document.querySelector('.color-sample');
+const sampleColor = window.getComputedStyle(sample);
+let userColor = sampleColor.getPropertyValue('background-color');
 // adding chosen color to color-sample
 colorSquares.forEach((div) => {
   div.addEventListener('click', (e) => {
@@ -62,7 +61,7 @@ colorSquares.forEach((div) => {
 
 //live drawing
 let pixels = document.querySelectorAll('.grid-square');
-//creating function for drawing to be called inside event listeners for live drawing, eraser, and rainbow tool
+//creating function for drawing to be called inside event listeners for live drawing and eraser tool
 function drawing() {
   pixels.forEach((div) => {
     div.addEventListener('mouseover', (e) => {
@@ -75,15 +74,6 @@ function drawing() {
 };
 //calling function for live drawing
 drawing();
-
-/* pixels.forEach((div) => {
-  div.addEventListener('mouseover', (e) => {
-    e.target.style.backgroundColor = userColor;
-  });
-  div.addEventListener('touchmove', (e) => {
-    e.target.style.backgroundColor = userColor;
-  });
-}); */
 
 //clear drawing
 const clearContainer = document.querySelector('.clear');
@@ -130,15 +120,35 @@ const eraserTool = document.querySelector('#eraser img');
 //erasing pixels when passed over
 eraserTool.addEventListener('click', (e) => {
   //eraser tool style on click
-  e.target.style.border = '3px solid #ffffff';
-  e.target.style.borderRadius = '100%';
-  //changing from live drawing to erasing (change color of pixels to transparent)
-  userColor = 'transparent';
-  drawing();
-  //disabling eraser tool
-  eraserTool.addEventListener('click', (e) => {
-    e.target.style.border = 'none';
-    e.target.style.borderRadius = '0%';
-    userColor = sample.style.backgroundColor;
+  eraserTool.classList.toggle('active');
+  if (eraserTool.getAttribute('class') === 'active') {
+    userColor = 'transparent';
+  } else if (eraserTool.getAttribute('class') !== 'active') {
+    userColor = sampleColor.getPropertyValue('background-color');
+  };
+});
+
+//rainbow tool
+const rainbowTool = document.querySelector('#rainbow img');
+//generating random colors
+function randomRainbow() {
+  pixels.forEach((div) => {
+    div.addEventListener('mouseover', (e) => {
+      e.target.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    });
+    div.addEventListener('touchmove', (e) => {
+      e.target.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    });
   });
+};
+//using function when icon is clicked
+
+rainbowTool.addEventListener('click', (e) => {
+  //rainbow tool style on click
+  rainbowTool.classList.toggle('active');
+  if (rainbowTool.getAttribute('class') === 'active') {
+    randomRainbow();
+  } else if (rainbowTool.getAttribute('class') !== 'active') {
+    drawing();
+  };
 });
