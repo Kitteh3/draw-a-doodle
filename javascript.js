@@ -65,8 +65,10 @@ let pixels = document.querySelectorAll('.grid-square');
 function drawing() {
   pixels = document.querySelectorAll('.grid-square');
   pixels.forEach((div) => {
-    div.addEventListener('mouseover', (e) => {
-      e.target.style.backgroundColor = userColor;
+    div.addEventListener('mousemove', (e) => {
+      if (e.ctrlKey === true) {
+        e.target.style.backgroundColor = userColor;
+      };
     });
     div.addEventListener('touchmove', (e) => {
       e.target.style.backgroundColor = userColor;
@@ -134,8 +136,10 @@ const rainbowTool = document.querySelector('#rainbow img');
 //generating random colors
 function randomRainbow() {
   pixels.forEach((div) => {
-    div.addEventListener('mouseover', (e) => {
-      e.target.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    div.addEventListener('mousemove', (e) => {
+      if (e.ctrlKey === true) {
+        e.target.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      }
     });
     div.addEventListener('touchmove', (e) => {
       e.target.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
