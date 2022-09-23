@@ -27,12 +27,12 @@ body {
 .sidebar {
     flex: 1 1 0%;
     min-width: 300px;
-    max-width: 400px;
+    max-width: 500px;
+    height: 800px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin: 10px;
-    margin-top: 0px;
+    margin: 0px 10px;
 }
 
 .text {
@@ -193,6 +193,9 @@ body {
 .clear {
     background-color: #727272;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .grid-container {
