@@ -19,7 +19,7 @@ function makeGrid(rows, cols) {
     gridContainer.appendChild(gridSquare).className = 'grid-square';
   };
 }; 
-makeGrid(30, 30); //start with 30x30
+makeGrid(50, 50); //start with 50x50
 //update current slider value (each time you drag the slider handle)
 slider.oninput = function() {
   output.innerHTML = this.value;
@@ -63,6 +63,7 @@ colorSquares.forEach((div) => {
 let pixels = document.querySelectorAll('.grid-square');
 //creating function for drawing to be called inside event listeners for live drawing and eraser tool
 function drawing() {
+  pixels = document.querySelectorAll('.grid-square');
   pixels.forEach((div) => {
     div.addEventListener('mouseover', (e) => {
       e.target.style.backgroundColor = userColor;
