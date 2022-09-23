@@ -141,8 +141,7 @@ body {
 
 .canvas-tool,
 .eraser-tool,
-.rainbow-tool,
-.shading-tool {
+.rainbow-tool {
     flex: 1 1 0%;
     display: flex;
     flex-direction: column;
@@ -153,8 +152,7 @@ body {
 
 #canvas-color,
 #eraser,
-#rainbow,
-#shading {
+#rainbow {
     flex: 1 1 0%;
     background-color: transparent;
     border: none;
@@ -168,8 +166,7 @@ body {
 
 #canvas-color img,
 #eraser img,
-#rainbow img,
-#shading img {
+#rainbow img {
     flex: 1 1 0%;
     min-width: 10px;
     max-width: 70px;
@@ -184,7 +181,7 @@ body {
     font-family: brother-1816, sans-serif;
     font-style: normal;
     font-weight: 100;
-    font-size: 14px;
+    font-size: 18px;
     text-align: center;
     color: white;
     margin-top: 0px;
