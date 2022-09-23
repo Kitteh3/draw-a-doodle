@@ -20,7 +20,7 @@ body {
     display: flex;
     flex-wrap: wrap-reverse;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     margin: 0px 20px;
 }
 
@@ -32,6 +32,7 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     margin: 10px;
+    margin-top: 0px;
 }
 
 .text {
